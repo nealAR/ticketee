@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~>3.2'
 gem 'dynamic_form', '1.1.4'
+gem 'simplecov', :require => false, :group => :test
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
