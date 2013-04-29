@@ -3,6 +3,7 @@ feature "Editing tickets" do
   let!(:project) { Factory(:project) }
   let!(:ticket) { Factory(:ticket, :project => project) }
   before do
+    sign_in_as!(user)
     visit '/'
     click_link project.name
     click_link ticket.title

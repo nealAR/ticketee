@@ -24,6 +24,7 @@ feature 'Creating Projects' do
 	  visit '/'
 	  click_link 'New Project'
 	  click_button 'Create Project'
+	  save_and_open_page
 	  page.should have_content("Project has not been created.")
 	  page.should have_content("Name can't be blank")
 	end
