@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 feature "Editing Projects" do
+  before do
+    sign_in_as!(Factory(:admin_user))
+  end  
   scenario "Updating a project" do
     Factory(:project, :name => "TextMate 2")
     visit "/"
