@@ -8,7 +8,6 @@ feature "Assigning permissions" do
 
   before do
     sign_in_as!(admin)
-
     click_link "Admin"
     click_link "Users"
     click_link user.email

@@ -8,10 +8,7 @@ feature 'Creating Projects' do
     end
 
 	scenario "can create a project" do
-	  visit '/'
-	  click_link 'New Project'
 	  fill_in 'Name', :with => 'TextMate 2'
-	  fill_in 'Description', :with => "A text-editor for OS X"
 	  click_button 'Create Project'
 	  page.should have_content('Project has been created.')
 
@@ -22,10 +19,7 @@ feature 'Creating Projects' do
 	end 
 
 	scenario "can not create a project without a name" do
-	  visit '/'
-	  click_link 'New Project'
 	  click_button 'Create Project'
-	  save_and_open_page
 	  page.should have_content("Project has not been created.")
 	  page.should have_content("Name can't be blank")
 	end

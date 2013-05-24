@@ -21,11 +21,13 @@ before_filter :find_user, :only => [:show, :edit, :update, :destroy]
   def edit
   end
   def update
-    @user.skip_reconfirmation! 
+    #@user.skip_reconfirmation! 
     if params[:user][:password].blank?
       params[:user].delete(:password)
       params[:user].delete(:password_confirmation)
     end
+    
+    @user.skip_reconfirmation!
     if @user.update_attributes(params[:user], :as => :admin)
       flash[:notice] = "User has been updated."
       redirect_to admin_users_path

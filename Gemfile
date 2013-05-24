@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~>3.2'
+
 gem 'dynamic_form', '1.1.4'
 
 
@@ -29,13 +30,17 @@ group :test, :development do
 end
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'launchy'
   gem 'factory_girl', '2.6.4'
   gem 'simplecov', :require => false, :group => :test
   gem 'email_spec', '1.2.1'
 end
 
 gem 'devise', '2.1.0'
+
 gem 'cancan', '1.6.7'
+
+gem 'paperclip', '2.7.0'
 
 
 

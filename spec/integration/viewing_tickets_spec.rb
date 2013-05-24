@@ -1,8 +1,6 @@
 require 'spec_helper'
 feature "Viewing tickets" do
   before do
-    define_permission!(user, "view", textmate_2)
-    define_permission!(user, "view", internet_explorer)
     textmate_2 = Factory(:project, :name => "TextMate 2")
     user = Factory(:confirmed_user)
     ticket = Factory(:ticket,
@@ -10,12 +8,17 @@ feature "Viewing tickets" do
                  :title   => "Make it shiny!",
                  :description => "Gradients! Starbursts! Oh my!")
     ticket.update_attribute(:user, user)
-	  internet_explorer = Factory(:project, :name => "Internet Explorer")
+    internet_explorer = Factory(:project, :name => "Internet Explorer")    
+
 	  Factory(:ticket,
 	            :project => internet_explorer,
 	            :title => "Standards compliance",
 	            :description => "Isn't a joke.")
     sign_in_as!(user)
+
+    define_permission!(user, "view", textmate_2)
+    define_permission!(user, "view", internet_explorer)
+
 	  visit '/' 
   end
   scenario "Viewing tickets for a given project" do

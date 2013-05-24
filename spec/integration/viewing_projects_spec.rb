@@ -11,7 +11,6 @@ feature "Viewing projects" do
   end
 
   scenario "Listing all projects" do
-    project = Factory.create(:project, :name => "TextMate 2")
     visit '/'
     page.should_not have_content("Internet Explorer")
     click_link project.name

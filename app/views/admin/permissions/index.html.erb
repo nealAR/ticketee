@@ -4,13 +4,13 @@
     <thead>
       <th>Project</th>
       <% permissions.each do |name, text| %>
-      <th><%= text %></th>
+        <th><%= text %></th>
        <% end %>
      </thead>
      <tbody>
        <% @projects.each do |project| %>
          <tr class='<%= cycle("odd", "even") %>'
-             id='project_<%= project_id %>'>
+             id='project_<%= project.id %>'>
            <td><%= project.name %></td>
            <% permissions.each do |name, text| %> 
            <td>

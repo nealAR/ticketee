@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517015320) do
+ActiveRecord::Schema.define(:version => 20130524004039) do
 
   create_table "permissions", :force => true do |t|
     t.integer  "user_id"
     t.integer  "thing_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "action"
+    t.text     "thing_type"
   end
 
   create_table "projects", :force => true do |t|
@@ -31,9 +33,13 @@ ActiveRecord::Schema.define(:version => 20130517015320) do
     t.string   "title"
     t.text     "description"
     t.integer  "project_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "user_id"
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
   end
 
   add_index "tickets", ["project_id"], :name => "index_tickets_on_project_id"
